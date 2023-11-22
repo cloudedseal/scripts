@@ -1,0 +1,8 @@
+include redis.conf
+pidfile "/var/run/redis_6382.pid"
+port 6382
+dbfilename "dump6382.rdb"
+appendfilename "appendfile6382.aof"
+replica-priority 70
+
+logfile access6382.log
