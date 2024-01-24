@@ -4,5 +4,8 @@ port 6380
 dbfilename dump6380.rdb
 appendfilename appendfile6380.aof
 replica-priority 90
-
 logfile access6380.log
+
+# deploy on remote machine 192.168.6.40
+bind 192.168.6.40
+protected-mode no

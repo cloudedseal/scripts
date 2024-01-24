@@ -13,8 +13,12 @@ redis-server redis-6382.conf
 
 pidof redis-server
 
-redis-cli -p 6381 slaveof 127.0.0.1 6380
-redis-cli -p 6382 slaveof 127.0.0.1 6380
+#redis-cli -p 6381 slaveof 127.0.0.1 6380
+#redis-cli -p 6382 slaveof 127.0.0.1 6380
+
+# deploy on remote machine 192.168.6.40
+redis-cli -p 6381 slaveof 192.168.6.40 6380
+redis-cli -p 6382 slaveof 192.168.6.40 6380
 
 /bin/cp -f sentinel-26380.conf.bak sentinel-26380.conf
 /bin/cp -f sentinel-26381.conf.bak sentinel-26381.conf

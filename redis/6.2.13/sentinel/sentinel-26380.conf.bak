@@ -1,8 +1,10 @@
 include sentinel.conf
 pidfile "/var/run/sentinel_26380.pid"
 port 26380
-sentinel monitor mymaster 127.0.0.1 6380 2
+# sentinel monitor mymaster 127.0.0.1 6380 2
 daemonize yes
 
 logfile access_26380.log
 
+# deploy on remote machine 192.168.6.40
+sentinel monitor mymaster 192.168.6.40 6380 2
