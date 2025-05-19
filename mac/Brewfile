@@ -1,0 +1,44 @@
+
+# https://catalins.tech/how-i-setup-new-macbooks/
+
+# command-line utilities
+brew "cask"
+brew "git"
+brew "node"
+brew "ffmpeg"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "gh"
+brew "iproute2mac"
+brew "jq"
+brew "wget"
+
+# GUI apps 
+
+cask "cursor"
+cask "discord"
+cask "raycast"
+cask "google-chrome"
+cask "firefox"
+cask "visual-studio-code"
+cask "imageoptim"
+cask "docker"
+cask "obs"
+cask "elgato-stream-deck"
+cask "elgato-camera-hub"
+cask "zoom"
+cask "vlc"
+cask "pgadmin4"
+cask "nordvpn"
+cask "zed"
+cask "ngrok"
+cask "squirrel"
+cask "mos"
+
+# fonts
+
+# cask "font-hack-nerd-font"
+# cask "font-menlo-for-powerline"
+# cask "font-jetbrains-mono"
+# cask "font-jetbrains-mono-nerd-font"
