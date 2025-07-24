@@ -9,7 +9,7 @@ NIC="AX88179A"
 echo "Current proxy bypass domains for $NIC:"
 networksetup -getproxybypassdomains $NIC
 
-sudo networksetup -getproxybypassdomains $NIC  | grep -x '.zhixuan.com' > /dev/null || sudo networksetup -setproxybypassdomains $NIC "$(sudo networksetup -getproxybypassdomains $NIC | tr '\n' ','  | xargs) ,.zhixuan.com"
+sudo networksetup -getproxybypassdomains $NIC  | grep -x '.zhixuan.com' > /dev/null || sudo networksetup -setproxybypassdomains $NIC "$(sudo networksetup -getproxybypassdomains $NIC | tr '\n' ','  | xargs) *.zhixuan.com"
 echo "Updated proxy bypass domains for $NIC"
 
 networksetup -getproxybypassdomains $NIC 
