@@ -30,12 +30,16 @@ echo
 find . -type f \( \
     -name "*.jar" \
     -o -name "*.pom" \
-    -o -name "*.aar" \
     -o -name "*.war" \
+    -o -name "*.aar" \
     -o -name "*.zip" \
     -o -name "*.sha1" \
     -o -name "*.md5" \
-\) -print0 | while IFS= read -r -d '' file; do
+\) \
+! -name "maven-metadata*.xml*" \
+! -name "_remote.repositories" \
+! -name "*.lastUpdated" \
+-print0 | while IFS= read -r -d '' file; do
 
     rel_path="${file#./}"
 
