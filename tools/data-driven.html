@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data-Driven Example</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button { margin-top: 10px; padding: 5px 10px; }
+    .counter { font-size: 24px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Mini Data-Driven Example (Vue 3 Style)</h2>
+  
+  <div id="app">
+    <p>Count: {{ state.count }}</p>
+    <!--You just change the data (state.count++), and the view magically updates.
+    That’s why Vue is called “data-driven”.-->
+    <button @click="increment">Add 1</button>
+    <p class="counter">Double Count: {{ doubleCount() }}</p>
+  </div>
+
+  <script>
+    // Step 1: Define reactive state using Proxy
+    const state = new Proxy({ count: 0 }, {
+      get(target, prop) {
+        return target[prop];
+      },
+      set(target, prop, value) {
+        target[prop] = value;
+        render(); // Re-render whenever state changes
+        return true;
+      }
+    });
+
+    // Step 2: Define some functions
+    function increment() {
+      state.count++;
+    }
+
+    function doubleCount() {
+      return state.count * 2;
+    }
+
+    // Step 3: Render function to update DOM
+    function render() {
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <p>Count: ${state.count}</p>
+        <button onclick="increment()">Add 1</button>
+        <p class="counter">Double Count: ${doubleCount()}</p>
+      `;
+    }
+
+    // Initial render
+    render();
+
+    // Make functions global so button can access
+    window.increment = increment;
+    window.doubleCount = doubleCount;
+  </script>
+</body>
+</html>
